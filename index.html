@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mojin — AI-Augmented Studio</title>
-  <meta name="description" content="An AI-augmented studio making small, loved things. Games you play together, Japanese language learning with real depth, and a builder that turns words into playable games.">
-  <meta property="og:title" content="Mojin — AI-Augmented Studio">
-  <meta property="og:description" content="Small studio, lots of agents. Games, Japanese learning, and a game builder — all made by one person with an AI fleet.">
+  <title>Mojin — Demo</title>
+  <meta name="description" content="AI game studio shipping great games players remix and rebuild. Solo founder, AI harness, real games running today.">
+  <meta property="og:title" content="Mojin — AI game studio">
+  <meta property="og:description" content="Solo founder + AI harness. Real games running today: deterministic multiplayer, headless playtesting at 50,000 plays per minute, AI agents possessing players, 3D on our own engine.">
   <meta property="og:url" content="https://mojin.dev">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,26 +26,27 @@
       --yellow: #fbbf24;
       --yellow-dark: #d97706;
       --blue: #3b82f6;
+      --green: #22c55e;
       --font-display: "Lilita One", cursive;
       --font-body: "Nunito", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", Menlo, monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
 
     body {
       background: rgb(var(--bg));
       color: rgb(var(--text));
       font-family: var(--font-body);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── Sticky nav (matches portal-nav from mojin.games) ── */
+    /* ── Sticky nav ── */
     .portal-nav {
       display: flex;
       align-items: center;
@@ -68,166 +69,200 @@
 
     .portal-nav-brand-accent { color: var(--yellow); }
 
-    .portal-nav-status {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: var(--yellow);
-      background: rgba(251, 191, 36, 0.15);
-      padding: 0.375rem 0.75rem;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* ── Page (matches legal-page) ── */
-    .page {
-      max-width: 760px;
+    /* ── Hero ── */
+    .hero {
+      max-width: 880px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 4rem 1.5rem 2.5rem;
+      text-align: left;
     }
 
-    .page-header {
-      margin: 1rem 0 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(var(--text), 0.08);
-    }
-
-    .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgb(var(--text-secondary));
-      margin-bottom: 0.25rem;
-    }
-
-    .page-title {
-      font-family: var(--font-display);
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: rgb(var(--text));
-      line-height: 1.1;
-    }
-
-    .page-subtitle {
-      margin-top: 0.5rem;
-      color: rgb(var(--text-secondary));
-      font-size: 0.9375rem;
-    }
-
-    .body { font-size: 0.9375rem; line-height: 1.7; }
-
-    .body h2 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 2rem 0 0.75rem;
-    }
-
-    .body p { margin: 0 0 1rem; }
-    .body ul { padding-left: 1.25rem; margin: 0 0 1rem; }
-    .body li { margin-bottom: 0.5rem; }
-    .body strong { font-weight: 700; }
-    .body code {
-      background: rgba(var(--text), 0.06);
-      padding: 0.125rem 0.375rem;
-      border-radius: 4px;
-      font-size: 0.8125rem;
+    .hero-eyebrow {
       font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgb(var(--text-secondary));
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
 
-    /* ── Product cards ── */
-    .products {
-      display: flex;
-      flex-direction: column;
-      gap: 0.875rem;
-      margin: 1.25rem 0 2rem;
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.05;
+      color: rgb(var(--text));
+      margin-bottom: 1.25rem;
+      max-width: 22ch;
     }
 
-    .product {
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: rgb(var(--text-secondary));
+      max-width: 60ch;
+    }
+
+    /* ── Sections ── */
+    .demo {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem;
+    }
+
+    .demo-card {
+      background: rgb(var(--surface));
+      border: 3px solid rgb(var(--navy));
+      border-radius: 16px;
+      box-shadow: 0 6px 0 rgb(var(--navy));
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .demo-card-body {
+      padding: 1.5rem 1.5rem 1.75rem;
+    }
+
+    .demo-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--yellow-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1.15;
+      margin-bottom: 0.625rem;
+      color: rgb(var(--text));
+    }
+
+    .demo-caption {
+      font-size: 0.9375rem;
+      color: rgb(var(--text-secondary));
+      max-width: 60ch;
+    }
+
+    .demo-receipt {
+      display: inline-block;
+      margin-top: 0.875rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: rgb(var(--text-secondary));
+      background: rgba(var(--text), 0.04);
+      padding: 0.375rem 0.625rem;
+      border-radius: 6px;
+    }
+
+    .media-slot {
+      background: rgb(var(--navy));
+      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.125rem 1.25rem;
-      background: rgb(var(--surface));
-      border: 3px solid rgb(var(--navy));
-      border-radius: 14px;
-      box-shadow: 0 6px 0 rgb(var(--navy));
-      color: rgb(var(--text));
-      text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
-    }
-
-    .product:hover {
-      text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 0 rgb(var(--navy));
-    }
-
-    .product-info { display: flex; flex-direction: column; gap: 0.125rem; }
-
-    .product-name {
-      font-family: var(--font-display);
-      font-size: 1.0625rem;
-      letter-spacing: 0.01em;
-    }
-
-    .product-desc {
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: var(--font-mono);
       font-size: 0.8125rem;
-      color: rgb(var(--text-secondary));
+      letter-spacing: 0.04em;
+      position: relative;
+      overflow: hidden;
     }
 
-    .product-badge {
-      font-family: var(--font-body);
-      font-weight: 800;
-      font-size: 0.65rem;
-      color: rgb(var(--navy));
-      background: var(--yellow);
-      padding: 0.3rem 0.625rem;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
+    .media-slot video,
+    .media-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* portrait + landscape sources both look honest */
+      display: block;
     }
 
-    .product.coming-soon { opacity: 0.7; cursor: default; }
-    .product.coming-soon:hover { transform: none; box-shadow: 0 6px 0 rgb(var(--navy)); }
-    .product.coming-soon .product-badge {
-      background: rgb(var(--border));
-      color: rgb(var(--text-secondary));
+    .media-slot.placeholder::before {
+      content: "MEDIA PENDING";
     }
 
-    /* ── Invite callout ── */
-    .invite {
-      margin: 2rem 0;
-      padding: 1.25rem 1.5rem;
+    /* ── Grid for screenshot stacks ── */
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.5rem;
+      padding: 0;
+    }
+
+    .shot-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Text-only block (Urban Dead) ── */
+    .text-block {
+      padding: 1.5rem 1.75rem 1.75rem;
       background: rgb(var(--surface));
       border: 3px solid rgb(var(--navy));
-      border-radius: 14px;
+      border-radius: 16px;
       box-shadow: 0 6px 0 rgb(var(--navy));
+      margin-bottom: 2rem;
     }
 
-    .invite h2 { margin-top: 0; }
-    .invite p:last-child { margin-bottom: 0; }
+    /* ── Receipts ── */
+    .receipts {
+      max-width: 880px;
+      margin: 1rem auto 0;
+      padding: 1.5rem;
+    }
+
+    .receipts-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: rgb(var(--text));
+      margin-bottom: 1rem;
+    }
+
+    .receipts ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1.5rem;
+      font-size: 0.875rem;
+      color: rgb(var(--text-secondary));
+    }
+
+    .receipts li {
+      padding: 0.375rem 0;
+      border-bottom: 1px solid rgba(var(--text), 0.06);
+    }
+
+    .receipts code {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: rgb(var(--text));
+    }
 
     /* ── Footer ── */
     .footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
+      max-width: 880px;
+      margin: 2rem auto 0;
+      padding: 2rem 1.5rem 3rem;
       border-top: 1px solid rgba(var(--text), 0.08);
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: rgb(var(--text-muted));
       letter-spacing: 0.03em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     @media (max-width: 640px) {
       .portal-nav { padding: 0.75rem 1rem; }
       .portal-nav-brand { font-size: 1.375rem; }
-      .page-title { font-size: 1.625rem; }
-      .product { padding: 1rem; }
+      .hero { padding: 2.5rem 1.25rem 1.5rem; }
+      .demo-card-body { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -237,93 +272,163 @@
     <div class="portal-nav-brand">
       MOJIN<span class="portal-nav-brand-accent">.DEV</span>
     </div>
-    <div class="portal-nav-status">Closed Beta</div>
   </nav>
 
-  <main class="page">
-    <header class="page-header">
-      <div class="eyebrow">About</div>
-      <h1 class="page-title">An AI-augmented studio</h1>
-      <p class="page-subtitle">One person, a fleet of agents, building games you play together and tools that teach you Japanese.</p>
-    </header>
+  <header class="hero">
+    <div class="hero-eyebrow">AI game studio · solo founder · running today</div>
+    <h1 class="hero-title">AI game studio shipping great games players remix and rebuild.</h1>
+    <p class="hero-sub">
+      One founder, an AI build harness running daily, and a stack of real games:
+      deterministic multiplayer with rewind, headless playtesting at tens of thousands
+      of plays per minute, AI agents possessing players, and 3D on our own engine.
+      Below is the work, not slideware.
+    </p>
+  </header>
 
-    <article class="body">
-      <p>
-        <strong>Mojin</strong> is a small studio based in Sweden. We design and ship
-        small, loved things — games, a Japanese-learning platform, and the tools that
-        help us build them all faster. Everything we make is shaped by the same question:
-        what becomes possible when one person and a room full of AI agents can build like
-        a full studio?
-      </p>
+  <!-- ─────────────────────────────────────────────────────────────
+       Section order follows the application's "lead with strongest"
+       principle. Sushi Pack and the level generator are tightly
+       coupled (same engine demo, different surface), so they're
+       grouped. Tiny Swords is the room weapon — last visible row
+       since it needs the strongest video.
+       ───────────────────────────────────────────────────────────── -->
 
-      <h2>What we make</h2>
-      <div class="products">
-        <a href="https://mojin.games" class="product">
-          <div class="product-info">
-            <div class="product-name">Mojin Games</div>
-            <div class="product-desc">Casual games portal. Play, earn achievements, join crews. Small games, short sessions, played with friends.</div>
-          </div>
-          <span class="product-badge">Beta</span>
-        </a>
+  <main>
 
-        <a href="https://mojin.games/learn" class="product">
-          <div class="product-info">
-            <div class="product-name">Mojin Learn</div>
-            <div class="product-desc">Japanese language learning with real depth. Grammar, kanji, and vocab with spaced repetition — plus the linguistic scholarship the other apps skip.</div>
-          </div>
-          <span class="product-badge">Beta</span>
-        </a>
-
-        <a href="https://makegame.app" class="product">
-          <div class="product-info">
-            <div class="product-name">Make Game</div>
-            <div class="product-desc">AI game builder. Describe a game, watch it build, play it in minutes.</div>
-          </div>
-          <span class="product-badge">Beta</span>
-        </a>
+    <!-- 1. Tiny Swords ────────────────────────────────────────── -->
+    <section class="demo">
+      <div class="demo-card">
+        <div class="media-slot" id="media-tiny-swords">
+          <video
+            src="media/tiny-swords.mp4"
+            poster="media/posters/tiny-swords.jpg"
+            autoplay muted loop playsinline></video>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-eyebrow">Tiny Swords · real-time multiplayer</div>
+          <h2 class="demo-title">Deterministic multiplayer with rewind, running on phone.</h2>
+          <p class="demo-caption">
+            Real-time multiplayer on a deterministic core. Same engine runs headless
+            for testing and balance. Cross-platform out of the box; relay running live
+            on Fly.
+          </p>
+          <span class="demo-receipt"><code>tiny-swords-relay.fly.dev</code> · Capacitor iOS · 51 replay seeds</span>
+        </div>
       </div>
+    </section>
 
-      <h2>The games</h2>
-      <p>
-        We're shipping a growing library of small games — card games, puzzles, arcade
-        action, and a few stranger experiments at the edges. The lineup leans toward short
-        sessions, easy-to-learn rules, and designs that lend themselves well to playing
-        together. New ones land regularly.
-      </p>
-
-      <h2>The learning</h2>
-      <p>
-        <strong>Mojin Learn</strong> is our Japanese language platform — built on real open
-        data (JMdict, KANJIDIC, KanjiVG, Tatoeba, UniDic) with per-learner spaced repetition
-        across grammar, kanji, and vocabulary. It's deliberately serious: we surface the
-        linguistics scholarship the other apps skip, give you kanji drawing recognition over
-        the full 6,430-character set, and gate furigana by what <em>you</em> personally
-        know rather than by JLPT level. Same account as Mojin Games, different mode.
-      </p>
-
-      <h2>The community</h2>
-      <p>
-        Our portal is built around small crews — friends playing the same handful of games,
-        studying together, chasing scores, swapping reviews. We're keeping things
-        deliberately tight while we learn what works. The goal isn't a feed; it's a
-        clubhouse.
-      </p>
-
-      <div class="invite">
-        <h2>Closed beta</h2>
-        <p>
-          Mojin is currently invite-only while we shape the experience with a small group of
-          founding players and learners. If you'd like an invite, reach out and tell us a
-          bit about yourself — whether you're here for the games, the Japanese, or both.
-        </p>
-        <p>
-          Get in touch: <a href="mailto:hello@mojin.dev">hello@mojin.dev</a>
-        </p>
+    <!-- 2. Sushi Pack / bento-pack-pixi ───────────────────────── -->
+    <section class="demo">
+      <div class="demo-card">
+        <div class="media-slot" id="media-sushi-pack">
+          <video
+            src="media/sushi-pack.mp4"
+            poster="media/posters/sushi-pack.jpg"
+            autoplay muted loop playsinline></video>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-eyebrow">Sushi Pack · craft, auto-balanced</div>
+          <h2 class="demo-title">Hand-crafted look. Auto-balanced by the engine, not by hand.</h2>
+          <p class="demo-caption">
+            Sushi Pack is the art-craft showcase. Every level is balanced by the same
+            headless solver that ships inside the game: deterministic playthroughs across
+            three AI strategies set the win-rate, par, and 3-star thresholds without a
+            human playtester touching it.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <footer class="footer">© 2026 Mojin · Sweden</footer>
-    </article>
+    <!-- 3. Mojin Studio · the editor toolchain ────────────────── -->
+    <section class="demo">
+      <div class="demo-card">
+        <div class="media-slot" id="media-mojin-studio">
+          <video src="media/mojin-studio.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-eyebrow">Mojin Studio · the editor</div>
+          <h2 class="demo-title">Levels, SFX, VFX, composition. One editor.</h2>
+          <p class="demo-caption">
+            Everything one person needs to make a game, in one tool. Author a level
+            and watch the headless solver score 100 of them across three AI strategies
+            in about three seconds. Compose SFX, build VFX, wire up scenes. The harness
+            drives this from a captured voice note &mdash; the human steps in where
+            craft matters.
+          </p>
+          <span class="demo-receipt"><code>editor/tools/{mojin-levels, mojin-sfx, mojin-vfx, mojin-ui}</code> · 100 levels × 50 plays ≈ 3s</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Yokai Run · 3D ─────────────────────────────────────── -->
+    <section class="demo">
+      <div class="demo-card">
+        <div class="media-slot" id="media-yokai-run">
+          <video
+            src="media/yokai-run.mp4"
+            poster="media/posters/yokai-run.jpg"
+            autoplay muted loop playsinline></video>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-eyebrow">Yokai Run · 3D on our own engine</div>
+          <h2 class="demo-title">Same deterministic core. Three.js + Rapier. Built this week.</h2>
+          <p class="demo-caption">
+            Renderer- and physics-agnostic by design. The engine runs fully headless,
+            ships in 2D through pixi.js, and in 3D through Three.js with Rapier physics.
+            One core, three surfaces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. The harness · text block ───────────────────────────── -->
+    <section class="demo">
+      <div class="text-block">
+        <div class="demo-eyebrow">The harness · running daily</div>
+        <h2 class="demo-title">Voice in. Merged code out. A studio of agents.</h2>
+        <p class="demo-caption">
+          Capture by voice or text. The harness routes to the right repo, spawns a worker
+          in an isolated git worktree, runs QA, gates on trust tier, auto-merges or opens
+          a PR. Overnight research agents and a librarian keep the knowledge base fresh.
+          About a year old. Built solo. Running on a Mac mini.
+        </p>
+        <span class="demo-receipt"><code>steward/</code> · ~1 year of daily runs · worker fleet + auto-merge + auto-revert</span>
+      </div>
+    </section>
+
+    <!-- 7. Urban Dead · text only (per application spec) ──────── -->
+    <section class="demo">
+      <div class="text-block">
+        <div class="demo-eyebrow">Urban Dead · AI agents play alongside humans</div>
+        <h2 class="demo-title">A live world where AI agents possess players.</h2>
+        <p class="demo-caption">
+          A multiplayer world on SpacetimeDB with an HTTP bridge that lets AI agents
+          take over player characters and act in real time. Live. The concept is the
+          point — visuals are deliberately spare.
+        </p>
+        <span class="demo-receipt"><code>urbandead-api.fly.dev</code> · SpacetimeDB module deployed</span>
+      </div>
+    </section>
+
+    <!-- Receipts ──────────────────────────────────────────────── -->
+    <section class="receipts">
+      <h2 class="receipts-title">Verified, today</h2>
+      <ul>
+        <li><strong>Tiny Swords relay:</strong> <code>tiny-swords-relay.fly.dev</code> (health 200)</li>
+        <li><strong>Urban Dead bridge:</strong> <code>urbandead-api.fly.dev</code> (health ok)</li>
+        <li><strong>Headless solver:</strong> 1,000+ plays / level / ~305ms, three AI strategies, no Math.random leakage</li>
+        <li><strong>Level generator:</strong> 100 levels &times; 50 plays &asymp; 3s wall clock</li>
+        <li><strong>3D engine:</strong> Three.js + Rapier, deterministic core, built 2026-05-18</li>
+        <li><strong>Build harness:</strong> ~1 year running daily on Mac mini; worktree-isolated worker fleet, QA gates, trust-tiered auto-merge</li>
+      </ul>
+    </section>
+
   </main>
+
+  <footer class="footer">
+    <span>© 2026 Mojin · Sweden</span>
+    <span>Contact: <a href="mailto:jonas.oien@gmail.com">jonas.oien@gmail.com</a></span>
+  </footer>
 
 </body>
 </html>
