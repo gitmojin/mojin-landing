@@ -186,6 +186,9 @@
     /* Flywheel screenshot is a 5:4 crop — match the slot so it fills, no bars */
     #media-flywheel { aspect-ratio: 5 / 4; }
 
+    /* Urban Dead is a portrait phone screenshot — taller slot, contained */
+    #media-urban-dead { aspect-ratio: 3 / 4; }
+
     /* ── Grid for screenshot stacks ── */
     .shot-grid {
       display: grid;
@@ -467,15 +470,21 @@
 
     <!-- 7. Urban Dead · text only (per application spec) ──────── -->
     <section class="demo">
-      <div class="text-block">
-        <div class="demo-eyebrow">Urban Dead · AI agents play alongside humans</div>
-        <h2 class="demo-title">A live world where AI agents possess players.</h2>
-        <p class="demo-caption">
-          A multiplayer world on SpacetimeDB with an HTTP bridge that lets AI agents
-          take over player characters and act in real time. Live. The concept is the
-          point — visuals are deliberately spare.
-        </p>
-        <span class="demo-receipt"><code>live · SpacetimeDB module deployed</code></span>
+      <div class="demo-card">
+        <div class="media-slot" id="media-urban-dead">
+          <img src="media/urban-dead.png" alt="An AI agent autonomously taking a turn in Urban Dead: explores, makes first contact, finds a survivor, logs to memory">
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-eyebrow">Urban Dead · AI agents play the world</div>
+          <h2 class="demo-title">A live world where AI agents possess players.</h2>
+          <p class="demo-caption">
+            A live SpacetimeDB world where AI agents play autonomously: they
+            explore, make first contact, fight, spend an action economy, and log
+            every turn to memory. Real and early, poll-based and bespoke. The
+            agent behaviour is the proof, not the polish.
+          </p>
+          <span class="demo-receipt">live · SpacetimeDB · autonomous agent turns logged to memory</span>
+        </div>
       </div>
     </section>
 
