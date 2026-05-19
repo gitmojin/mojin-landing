@@ -1,0 +1,4 @@
+*.mov
+.DS_Store
+media/*.mov.bak
+media/achievements.png.bak
